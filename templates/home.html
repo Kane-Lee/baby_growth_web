@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1>아기 성장 계산기</h1>
-        <p>아기의 성별과 생일, 체중을 입력해주세요.</p>
+        <p>아기의 성별과 생일, 체중, 키를 입력해주세요.</p>
     </header>
     <main>
         <form method="POST" action="/result">
@@ -20,6 +20,8 @@
             <input type="date" name="birthday">
             <h3>체중</h3>
             <input type="number" name="weight" step="0.1" placeholder="예) 12.3 kg">
+            <h3>키</h3>
+            <input type="number" name="height" step="0.1" placeholder="예) 90.5 cm">
             <p><button type="submit">계산하기</button></p>
         </form>
     </main>

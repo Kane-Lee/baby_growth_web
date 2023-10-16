@@ -6,6 +6,8 @@ import pandas
 
 weight_man_df = pandas.read_csv("weight_man.csv")
 weight_woman_df = pandas.read_csv("weight_woman.csv")
+height_man_df = pandas.read_csv("height_man.csv")
+height_woman_df = pandas.read_csv("height_woman.csv")
 
 
 def calculate_month_age(birthday):
@@ -59,17 +61,22 @@ def create_app():
         month_age = calculate_month_age(birthday)
         
         baby_weight = float(request.form.get('weight'))
+        baby_height = float(request.form.get('height'))
 
         if gender == 'boy':
             weight_percentile = find_column_number(weight_man_df, month_age, baby_weight)
+            height_percentile = find_column_number(height_man_df, month_age, baby_height)
         else:
             weight_percentile = find_column_number(weight_woman_df, month_age, baby_weight)
+            height_percentile = find_column_number(weight_woman_df, month_age, baby_height)
 
         return render_template("result.html",
                                age=month_age,
                                gender=gender_in_korean,
                                baby_weight=baby_weight,
-                               weight_percentile=weight_percentile
+                               baby_height=baby_height,
+                               weight_percentile=weight_percentile,
+                               height_percentile=height_percentile
                                )
 
     return app

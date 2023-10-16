@@ -12,10 +12,23 @@
     </header>
     <main>
         <form>
-            <p>{{ age }}개월 {{baby_weight}}kg {{ gender }}아기</p>
-            <p>체중 : 상위 {{weight_percentile}} %</p>
-
+            <p>{{ age }}개월  {{ gender }}아기</p>
+            <p>체중 {{baby_weight}}kg : 상위 {{weight_percentile}} %</p>
+            <p>신장 {{baby_height}}cm : 상위 {{height_percentile}} %</p>
         </form>
+        <div class="how">
+        <details>
+            <summary>어떻게 계산되나요?</summary>
+            <div>
+            <p class="explanation">보건복지부와 대한소아과학회는 10년마다</p>
+            <p class="explanation">소아 청소년의 신장, 체중 등을 조사하여 발표하고 있어요.</p>
+            <p class="explanation">이 계산기는 최근 발표 자료인 2017년 자료를 바탕으로 만들어졌어요.</p>
+            </div>
+        </details>
+        </div>
+
+        <a href="/">다시하기</a> 
+          
     </main>
 </body>
 </html>

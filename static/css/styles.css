@@ -1,11 +1,17 @@
 header {
-    max-width: 640px;
+    max-width: 500px;
     margin: 50px auto;
     text-align: center;
 }
 
 main {
-    max-width: 640px;
+    max-width: 500px;
     margin: 50px auto;
     text-align: center;
+}
+
+.explanation { margin: 2px 0;}
+
+.how {
+    margin-bottom: 10px;
 }
