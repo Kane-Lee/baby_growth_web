@@ -1,6 +1,7 @@
 import pandas
 
 weight_man_df = pandas.read_csv("weight_man.csv")
+weight_woman_df = pandas.read_csv("weight_woman.csv")
 
 def find_column_number(df, row_index, target_value):
     if row_index < 0 or row_index >= len(df.index):
@@ -17,3 +18,5 @@ def find_column_number(df, row_index, target_value):
         if row[col_num] <= target_value < row[col_num + 1]:
             return df.columns[col_num]
     
+print(type(find_column_number(weight_woman_df,4,12.5)))
+print(find_column_number(weight_woman_df,4,12.5))
