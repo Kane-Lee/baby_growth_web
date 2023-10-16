@@ -11,7 +11,7 @@ height_woman_df = pandas.read_csv("height_woman.csv")
 
 
 def calculate_month_age(birthday):
-    birthdate = datetime.strptime(birthday,'%Y-%m-%d')
+    birthdate = datetime.strptime(birthday,'%Y/%m/%d')
     current_date = datetime.now()
     age_in_month = (current_date.year - birthdate.year) * 12 + (current_date.month - birthdate.month)
     return age_in_month
@@ -57,7 +57,7 @@ def create_app():
         gender = request.form.get('gender')
         gender_in_korean = translate_gender(gender)
         
-        birthday = request.form.get('birthday')
+        birthday = request.form.get('birthdate')
         month_age = calculate_month_age(birthday)
         
         baby_weight = float(request.form.get('weight'))
