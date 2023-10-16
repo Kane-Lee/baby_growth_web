@@ -2,7 +2,11 @@ from flask import Flask, render_template, request
 from datetime import datetime
 import pandas
 
+
+
 weight_man_df = pandas.read_csv("weight_man.csv")
+weight_woman_df = pandas.read_csv("weight_woman.csv")
+
 
 def calculate_month_age(birthday):
     birthdate = datetime.strptime(birthday,'%Y-%m-%d')
@@ -23,12 +27,15 @@ def find_column_number(df, row_index, target_value):
         return -1  # Row index out of range
 
     row = df.iloc[row_index]
-    column_number = row[row == target_value].index.tolist()
-    
-    if column_number:
-        return int(column_number[0])  # Return the first occurrence
+
+    if target_value >= row.iloc[-1]:
+        return df.columns[-1] # Return 99 if target_value is greater than last value
+    elif target_value < row.iloc[1]:
+        return df.columns[1] # Return 1 if target_value is smaller than first value
     else:
-        return -1  # Value not found in the row
+        for col_num in range(len(row) - 1):
+            if row[col_num] <= target_value < row[col_num + 1]:
+                return df.columns[col_num]
 
 
 
@@ -53,8 +60,10 @@ def create_app():
         
         baby_weight = float(request.form.get('weight'))
 
-        weight_percentile = 100-find_column_number(weight_man_df, month_age, baby_weight)
-        print(weight_percentile)
+        if gender == 'boy':
+            weight_percentile = find_column_number(weight_man_df, month_age, baby_weight)
+        else:
+            weight_percentile = find_column_number(weight_woman_df, month_age, baby_weight)
 
         return render_template("result.html",
                                age=month_age,
