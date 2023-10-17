@@ -10,8 +10,13 @@ main {
     text-align: center;
 }
 
+.spacer {
+    flex:1;
+}
+
 .explanation { margin: 2px 0;}
 
 .how {
     margin-bottom: 100px;
 }
+
