@@ -1,4 +1,6 @@
-
+*, *::after, *::before {
+    box-sizing: inherit;
+}
 
 main {
     max-width: 500px;
@@ -35,6 +37,7 @@ main {
 .footer__content {
     max-width: 640px;
     margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: row;
 }
