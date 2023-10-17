@@ -11,43 +11,61 @@
     
 </head>
 <body>
-    <header>
-        <h1>아기 성장 계산기</h1>
-        <p>아기의 성별과 생일, 체중, 키를 입력해주세요.</p>
-    </header>
     <main>
-        <form method="POST" action="/result">
-            <h3>성별</h3>
-            <label><input type="radio" name="gender" value="boy">남자</label>
-            <label><input type="radio" name="gender" value="girl">여자</label>
-            <h3>생일</h3>
+        <section>
+            <h1>아기 성장 계산기</h1>
+            <p class="input_explanation">아기의 성별과 생일, 체중, 키를 입력해주세요.</p>
+        </section>
+        <section>
+            <form method="POST" action="/result" class="entry">
+                <h3>성별</h3>
+                <label><input type="radio" name="gender" value="boy">남자</label>
+                <label><input type="radio" name="gender" value="girl">여자</label>
+                <h3>생일</h3>
 
-            <input type="text" id="birthdate" name="birthdate" readonly="readonly"/>
-            <script>
-                $(function() {
-                    $("#birthdate").datepicker({
-                        changeYear: true,
-                        yearRange: "-100:+0",
-                        dateFormat:"yy/mm/dd",
-                        defaultDate:"2023/01/01"
+                <input type="text" id="birthdate" name="birthdate" readonly="readonly"/>
+                <script>
+                    $(function() {
+                        $("#birthdate").datepicker({
+                            changeYear: true,
+                            yearRange: "-100:+0",
+                            dateFormat:"yy/mm/dd",
+                            defaultDate:"2023/01/01"
+                        });
                     });
-                });
-            </script>
+                </script>
 
-            <h3>체중</h3>
-            <input type="number" name="weight" step="0.1" placeholder="예) 12.3 kg">
-            <h3>키</h3>
-            <input type="number" name="height" step="0.1" placeholder="예) 90.5 cm">
-            <p><button type="submit">계산하기</button></p>
-        </form>
-        <div class="spacer"></div>
+                <h3>체중</h3>
+                <input type="number" name="weight" step="0.1" placeholder="예) 12.3 kg">
+                <h3>키</h3>
+                <input type="number" name="height" step="0.1" placeholder="예) 90.5 cm">
+                <p><button type="submit">계산하기</button></p>
+            </form>
+            <div class="spacer"></div>
+        </section>
     </main>
-    
     <footer class="footer">
-        <a href="mailto:kyedlee@gmail.com">기능 추가 요청하기</a>
+        <div class="footer__content">
+            <section class="left">
+                <a class="footer__item">Made by Kane Lee</a>
+                <a href="mailto:kyedlee@gmail.com" class="footer__item">Contact Me</a>
+            </section>
+            <section class="right">
+                <div class="footer__column">
+                    <a class="footer__item">About this page</a>
+                    <a class="footer__item">All right reserved</a>                    
+                </div>
+                <div class="footer__column">
+                    <a class="footer__item">Check out my other projects</a>   
+                    <a class="footer__item">Created using Python and Flask</a>                    
+                </div>
+            </section>
+        </div>
     </footer>
 </body>
 </html>
+
+
 
 
 
